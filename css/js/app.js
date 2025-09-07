@@ -10,3 +10,39 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 console.log("Firebase connected successfully!");
+import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } 
+from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+// ... کد قبلی‌ات اینجاست (firebaseConfig و initializeApp)
+
+const provider = new GoogleAuthProvider();
+
+// دکمه‌ها
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+
+// ورود
+loginBtn.addEventListener("click", () => {
+ signInWithPopup(auth, provider)
+ .then(result => {
+ alert("خوش آمدی " + result.user.displayName);
+ })
+ .catch(error => {
+ console.error(error);
+ });
+});
+
+// خروج
+logoutBtn.addEventListener("click", () => {
+ signOut(auth);
+});
+
+// تغییر وضعیت کاربرonAuthStateChanged(auth, user => {
+ if (user) {
+ loginBtn.style.display = "none";
+ logoutBtn.style.display = "inline-block";
+ } else {
+ loginBtn.style.display = "inline-block";
+ logoutBtn.style.display = "none";
+ }
+});
