@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+ <meta charset="UTF-8">
+ <title>Pikzels App</title>
+ <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ <header>
+ <h1>به اپلیکیشن Pikzels خوش آمدید</h1>
+ <button id="loginBtn">ورود با گوگل</button>
+ <button id="logoutBtn" style="display:none;">خروج</button>
+ </header>
+
+ <main>
+ <p>اینجا می‌توانید پروژه‌های خودتان را بسازید.</p>
+ </main>
+
+ <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+ <script src="js/app.js"></script>
+</body>
+</html>
