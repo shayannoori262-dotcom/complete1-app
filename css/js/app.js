@@ -1,37 +1,12 @@
-// --- تنظیمات Firebase ---// بعداً اینجا باید firebaseConfig خودت رو بذاریconst firebaseConfig = {
- apiKey: "YOUR_API_KEY",
- authDomain: "YOUR_PROJECT.firebaseapp.com",
- projectId: "YOUR_PROJECT_ID",
- storageBucket: "YOUR_PROJECT.appspot.com",
- messagingSenderId: "YOUR_SENDER_ID",
- appId: "YOUR_APP_ID"
-};
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
-// شروع Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+// Your web app's Firebase configuration
+const firebaseConfig = { apiKey: "AIzaSyDIfQf2x9l3mwdaKjkMLGnJ0r7RN3SI3go", authDomain: "pikzels-app.firebaseapp.com", projectId: "pikzels-app",storageBucket:"pikzels-app.firebasestorage.app",
+ messagingSenderId: "366491935536", appId:1:366491935536:web:649a6755468d3e57205ef5",measurementId: "G-LR0MSJLVEE"
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-// دکمه‌ها
-const loginBtn = document.getElementById("loginBtn");
-const logoutBtn = document.getElementById("logoutBtn");
-
-// ورود با گوگلloginBtn.addEventListener("click", () => {
- const provider = new firebase.auth.GoogleAuthProvider();
- auth.signInWithPopup(provider);
-});
-
-// خروج
-logoutBtn.addEventListener("click", () => {
- auth.signOut();
-});
-
-// تغییر وضعیت ورود/خروجauth.onAuthStateChanged(user => {
- if (user) {
- loginBtn.style.display = "none";
- logoutBtn.style.display = "inline-block";
- alert("خوش آمدی " + user.displayName);
- } else {
- loginBtn.style.display = "inline-block";
- logoutBtn.style.display = "none";
- }
-});
+console.log("Firebase connected successfully!");
